@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>飞蚂蚁订单系统</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <script src="src/js/cklogin.js"></script>
+  <?php include 'public/header.php';?>
+
+</head>
+
+<body>
+<style>
+  #dataTables_length{display:none;}
+  .ma-sec{
+    float: left;
+    margin-right:15px;
+  }
+  .ma-sec label{
+    float: left;
+    margin-right: 4px;
+  }
+  .ma-sec input{
+    float: left;
+  }
+</style>
+<div id="wrapper">
+
+  <!-- Navigation -->
+  <?php include 'public/nav.php';?>
+
+  <div id="page-wrapper" style="opacity:0;">
+
+    <!--        待发订单开始-->
+    <div id="order-onhand-main">
+      <!--            面包屑导航和日期-->
+      <div class="row">
+        <div class="col-lg-2">
+          <!--面包屑导航-->
+          <div id="cromb" >
+            <a :href="database.routes.orderOnhand">
+              订单查询>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-10">
+          <div id="date">
+            最新时间：
+            <span class="ma-date">
+                            {{ nowData.date }}
+                        </span>
+            <span class="ma-week">
+                            {{ nowData.week }}
+                        </span>
+          </div>
+        </div>
+      </div>
+      <div class="bar-height10 "></div>
+      <!-- /.row -->
+      <!--            搜索条-->
+      <div class="row" id="search-bar">
+
+        <div class="control-group">
+          <div class="col-lg-10">
+
+            <!--                        搜索条件-->
+            <div class="form-group input-el fl">
+              <div class="ma-sec">
+                <label for="fmydh">飞蚂蚁单号</label>
+                <input type="radio" name="searchType" id="fmydh">
+              </div>
+              <div class="ma-sec">
+                <label for="jjrdh">寄件人电话</label>
+                <input type="radio" name="searchType" id="jjrdh">
+              </div>
+            </div>
+            <!--                        搜索条件-->
+            <div class="form-group input-el fl">
+              <input class="form-control" id="input-val" placeholder="飞蚂蚁单号"   name="valInput">
+            </div>
+            <!--  搜索按钮-->
+            <div class="form-group fl input-submit">
+              <button class="btn btn-primary " id="doSearch">搜索</button>
+            </div>
+          </div>
+          <div class="col-lg-1">
+          </div>
+          <div class="col-lg-1">
+            <div class="form-group">
+              <div id="downloadform" onclick="clickDownload()"  href="#"  class="btn btn-primary " >下载表单</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--            表格-->
+      <div class="row" id="main-table">
+        <div class="col-lg-12">
+          <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
+            <thead>
+            <tr>
+              <th>飞蚂蚁订单号</th>
+              <th>U递订单编号</th>
+              <th>寄_姓名</th>
+              <th>寄_电话</th>
+              <th>寄_省</th>
+              <th>寄_市</th>
+              <th >寄_区</th>
+              <th >寄_街道</th>
+              <th >寄_详细地址</th>
+              <th >上传时间</th>
+            </tr>
+            </thead>
+          </table>
+
+        </div>
+        <!-- /.col-lg-12 -->
+      </div>
+
+    </div>
+
+  </div>
+  <div id="loading-icon"><img src="src/images/loading.gif" alt=""></div>
+  <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<?php include 'public/footer.php';?>
+<!--<script src="libs/papParse/papaparse.min.js"></script>-->
+
+<script type="text/javascript" src="libs/jsxlsx/xlsx.core.min.js"></script>
+<script type="text/javascript" src="libs/jsxlsx/Blob.js"></script>
+<script type="text/javascript" src="libs/jsxlsx/FileSaver.js"></script>
+
+
+<script src="src/js/searchOrderid.js"></script>
+
+</body>
+
+
+
+
+</html>
